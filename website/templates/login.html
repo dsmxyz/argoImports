@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1 class="container text-center mt-2">User is already logged in.</h1>
+
+{% else %}
+
+<h1 class="container text-center mt-2">Login</h1>
+
+<div class="container mt-4">
+    
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+    <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" name="username" placeholder="username" required>
+        </div>
+
+        <div class="mb-2">
+          <input type="password" class="form-control" name="password" placeholder="password" required> 
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="remembercheck">
+          <label class="form-check-label" for="remembercheck">Remember me?</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </form>
+</div>
+
+{% endif %}
+
+{% endblock %}
