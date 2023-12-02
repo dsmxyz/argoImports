@@ -13,4 +13,4 @@ class Customer(models.Model):
     zipcode=models.CharField(max_length=20)
     
     def __str__(self):
-        return(f"{self.name} {self.city}")
+        return(f"{self.name}")

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import Customer
 
 # Create your views here.
 def home(request):
@@ -32,4 +33,5 @@ def register_user(request):
     return render(request, 'register.html', {})
 
 def customers(request):
-    return render(request, 'customers.html', {})
+    customers=Customer.objects.all()
+    return render(request, 'customers.html', {'customers':customers})
