@@ -43,4 +43,14 @@ def customerInfo(request,pk):
         return render(request, 'customerInfo.html', {'customerInfo':customerInfo})
     else:
         messages.success(request, 'You must be logged in to view this page')
-        return redirect('home')
+        return redirect('login')
+
+def deleteCustomers(request,pk):
+    if request.user.is_authenticated:
+        deleteCustomer=Customer.objects.get(id=pk)
+        deleteCustomer.delete()
+        messages.success(request,'Customer successfully deleted')
+        return redirect('customers')
+    else:
+        messages.success(request,'You must be logged in to view this page')
+        return redirect('login')
