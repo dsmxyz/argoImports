@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mx-5">
+    <div class="card text-center">
+        <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+            <a class="btn btn-primary mx-2" href="{% url 'customers' %}">Back</a>
+            </li>
+            <li class="nav-item">
+            <a class="btn btn-danger mx-2" href="#">Delete</a>
+            </li>
+            <li class="nav-item">
+            <a class="btn btn-success mx-2" aria-disabled="true">Edit</a>
+            </li>
+        </ul>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">{{ customerInfo.name }}</h5>
+        <p class="card-text">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Small Price</th>
+                        <th scope="col">Large Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th scope="row">{{ customerInfo.email }}</th>
+                    <td>{{ customerInfo.phone }}</td>
+                    <td>{{ customerInfo.address }}, {{ customerInfo.city }}, {{ customerInfo.state }}, {{ customerInfo.zipcode }}</td>
+                    <td>12</td>
+                    <td>20</td>
+                </tbody>
+            </table>
+        </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
