@@ -20,21 +20,23 @@
         <h5 class="card-title">{{ customerInfo.name }}</h5>
         <p class="card-text">
             <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Small Price</th>
-                        <th scope="col">Large Price</th>
-                    </tr>
-                </thead>
                 <tbody>
-                    <th scope="row">{{ customerInfo.email }}</th>
-                    <td>{{ customerInfo.phone }}</td>
+                    <tr>
+                    <th scope="row">Email</th>
+                    <td>{{ customerInfo.email }}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Address</th>
                     <td>{{ customerInfo.address }}, {{ customerInfo.city }}, {{ customerInfo.state }}, {{ customerInfo.zipcode }}</td>
-                    <td>12</td>
-                    <td>20</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Small price</th>
+                    <td>$0.00</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Large price</th>
+                    <td>$0.00</td>
+                    </tr>
                 </tbody>
             </table>
         </p>

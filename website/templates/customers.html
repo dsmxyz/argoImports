@@ -5,7 +5,7 @@
 {% if user.is_authenticated %}
 
   <h1 class="container text-center mt-2">Customer List</h1>
-  
+
   <!--Datalist-->
   <div class="container">
   <label for="customerList" class="form-label">Customer search</label>
@@ -19,10 +19,11 @@
   </datalist>
   </div>
 
-
+  
   <!--Customer table-->
   <div class="container mt-3">
-    <table class="table table-bordered table-hover text-center">
+    <a href="{% url 'addCustomers' %}" class="btn btn-primary mb-2">Add customer</a>
+    <table class="table table-bordered table-hover text-center mt-2">
       <thead>
           <tr>
               <th scope="col">ID</th>
@@ -41,8 +42,8 @@
               <td>{{ customer.name }}</td>
               <td>{{ customer.address }}, {{ customer.city }}, {{ customer.state }}, {{ customer.zipcode }}</td>
               <td>{{ customer.email }}</td>
-              <td>12</td>
-              <td>20</td>
+              <td>$0.00</td>
+              <td>$0.00</td>
           </tr>
       {% endfor %}
       {% endif %}

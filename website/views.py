@@ -54,3 +54,7 @@ def deleteCustomers(request,pk):
     else:
         messages.success(request,'You must be logged in to view this page')
         return redirect('login')
+    
+def addCustomers(request):
+
+    return render(request, 'addCustomers.html', {})
