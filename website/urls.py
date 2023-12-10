@@ -11,6 +11,7 @@ urlpatterns = [
     path('deleteCustomers/<int:pk>', views.deleteCustomers, name='deleteCustomers'),
     path('addCustomers/', views.addCustomers, name="addCustomers"),
     path('updateCustomers/<int:pk>', views.updateCustomers, name="updateCustomers"),
+    path('trucks/', views.trucks, name="trucks"),
          
 
     

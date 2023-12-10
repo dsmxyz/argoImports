@@ -78,3 +78,6 @@ def updateCustomers(request, pk):
     else:
         messages.success(request, 'You must be logged in to view this page')
         return redirect('login')
+    
+def trucks(request):
+    return render(request, 'trucks.html', {})
