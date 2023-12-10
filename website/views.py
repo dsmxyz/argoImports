@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, addCustomersForm
-from .models import Customer
+from .models import Customer,Truck
 
 # Create your views here.
 def home(request):
@@ -80,4 +80,5 @@ def updateCustomers(request, pk):
         return redirect('login')
     
 def trucks(request):
-    return render(request, 'trucks.html', {})
+    trucks=Truck.objects.all()
+    return render(request, 'trucks.html', {'trucks':trucks})

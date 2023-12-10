@@ -1,5 +1,60 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="container text-center mt-2">Trucks</h1>
+
+{% if user.is_authenticated %}
+
+  <h1 class="container text-center mt-2">Truck list</h1>
+
+  <!--Datalist-->
+  <div class="container">
+  <label for="truckList" class="form-label">Truck search</label>
+  <input class="form-control" list="datalistOptions" id="truckList" placeholder="Type to search...">
+  <datalist id="datalistOptions">
+  {% if trucks %}
+  {% for truck in trucks %}
+    <option value="{{ truck.name }}">
+  {% endfor %}
+  {% endif %}
+  </datalist>
+  </div>
+
+  
+  <!--truck table-->
+  <div class="container mt-3">
+    <a href="#" class="btn btn-primary mb-2">Add truck</a>
+    <table class="table table-bordered table-hover text-center mt-2">
+      <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nickname</th>
+              <th scope="col">Year</th>
+              <th scope="col">Make</th>
+              <th scope="col">Model</th>
+              <th scope="col">VIN number</th>
+          </tr>
+      </thead>
+      <tbody>
+      {% if trucks %}
+      {% for truck in trucks%}
+          <tr>
+              <td><a href="#">{{ truck.id }}</a></td>
+              <td>{{ truck.name }}</td>
+              <td>{{ truck.year }}</td>
+              <td>{{ truck.make }}</td>
+              <td>{{ truck.model }}</td>
+              <td>{{ truck.vin }}</td>
+          </tr>
+      {% endfor %}
+      {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+{% else %}
+
+<h1>No access</h1>
+
+{% endif %}
+
 {% endblock %}
