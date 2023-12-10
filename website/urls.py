@@ -12,6 +12,7 @@ urlpatterns = [
     path('addCustomers/', views.addCustomers, name="addCustomers"),
     path('updateCustomers/<int:pk>', views.updateCustomers, name="updateCustomers"),
     path('trucks/', views.trucks, name="trucks"),
+    path('trucks/<int:pk>', views.truckInfo, name="truckInfo")
          
 
     

@@ -20,7 +20,7 @@
   </div>
 
   
-  <!--truck table-->
+  <!--Truck table-->
   <div class="container mt-3">
     <a href="#" class="btn btn-primary mb-2">Add truck</a>
     <table class="table table-bordered table-hover text-center mt-2">
@@ -38,7 +38,7 @@
       {% if trucks %}
       {% for truck in trucks%}
           <tr>
-              <td><a href="#">{{ truck.id }}</a></td>
+              <td><a href="{% url 'truckInfo' truck.id %}">{{ truck.id }}</a></td>
               <td>{{ truck.name }}</td>
               <td>{{ truck.year }}</td>
               <td>{{ truck.make }}</td>

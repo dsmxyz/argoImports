@@ -80,5 +80,17 @@ def updateCustomers(request, pk):
         return redirect('login')
     
 def trucks(request):
-    trucks=Truck.objects.all()
-    return render(request, 'trucks.html', {'trucks':trucks})
+    if request.user.is_authenticated:
+        trucks=Truck.objects.all()
+        return render(request, 'trucks.html', {'trucks':trucks})
+    else:
+        messages.success(request, 'You must be logged in to view this page')
+        return redirect('login')
+
+def truckInfo(request,pk):
+    if request.user.is_authenticated:
+        truckInfo=Truck.objects.get(id=pk)
+        return render(request, 'truckInfo.html', {'truckInfo':truckInfo})
+    else:
+        messages.success(request, 'You must be logged in to view this page')
+        return redirect('login')
